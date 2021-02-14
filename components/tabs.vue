@@ -51,9 +51,9 @@ export default {}
   padding: 10px 20px;
   border-bottom: 2px solid transparent;
   color: var(--gh-mid-gray);
-  font-size: 1.01rem;
+  font-size: 0.9rem;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 .main-tab-item > img {
   margin-right: 10px;

@@ -155,6 +155,7 @@ input::placeholder {
 .nav-link a {
   color: #ffffff;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .nav-user-logo-wrapper {
