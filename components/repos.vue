@@ -67,17 +67,12 @@ export default {
     async getRepos() {
       await this.$store.dispatch('getUserRepos')
     },
-    async getUser() {
-      await this.$store.dispatch('getUserData')
-    },
   },
   async created() {
     await this.getRepos()
-    await this.getUser()
-    console.log(this.user)
   },
   computed: {
-    ...mapState(['repos', 'user', 'loading']),
+    ...mapState(['repos', 'loading']),
   },
 }
 </script>

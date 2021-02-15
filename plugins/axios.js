@@ -3,7 +3,7 @@ export default function ({
 }) {
   $axios.onRequest(config => {
 
-    config.headers['Authorization'] = `bearer e847f382d18e95638f225285e562049cc4d43773`
+    config.headers['Authorization'] = `bearer 1c4870f87ca4e8a49691f9d4cfc7b5cbe30a71da`
 
   })
 
