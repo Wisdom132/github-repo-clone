@@ -10,7 +10,10 @@
           </button>
           <button class="main-tab-item main-tab-item-active">
             <img src="icons/repositories.svg" alt="repositories icon" /><span
-              >Repositories</span
+              >Repositories
+              <span class="repos">{{
+                Number(this.user.owned_private_repos + this.user.public_repos)
+              }}</span></span
             >
           </button>
           <button class="main-tab-item">
@@ -29,10 +32,33 @@
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  methods: {
+    async getUser() {
+      await this.$store.dispatch('getUserData')
+    },
+  },
+  async created() {
+    await this.getUser()
+  },
+  computed: {
+    ...mapState(['user', 'loading']),
+  },
+}
 </script>
 
 <style  scoped>
+.repos {
+  background-color: var(--gh-light-gray);
+  padding: 3px 6px;
+  /* min-width: 20px; */
+  border-radius: 2em;
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: 500;
+}
 .tabs-nav-wrapper {
   position: sticky;
   top: 0;

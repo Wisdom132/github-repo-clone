@@ -1,6 +1,7 @@
 <template>
   <div>
-    <section class="left-menu">
+    <div class="" v-if="loading">loading</div>
+    <section class="left-menu" v-else>
       <div class="profile">
         <div class="profile-image-container">
           <img
@@ -10,38 +11,40 @@
           />
         </div>
         <div class="names-username">
-          <p id="name" class="profile-name">Wisdom Ekpot</p>
-          <p id="username" class="profile-username">Wisdom132</p>
+          <p id="name" class="profile-name">{{ user.name }}</p>
+          <p id="username" class="profile-username">{{ user.login }}</p>
         </div>
       </div>
-      <p id="bio" class="bio">Stick with me and you'll be fat🤓</p>
+      <p id="bio" class="bio">{{ user.bio }}</p>
       <button class="edit-profile-btn">Edit profile</button>
 
       <div class="user-stat">
         <a href="#" class="followers">
           <i class="fas fa-users"></i>
-          <span class="text-bold text-gray-dark">32</span> Followers </a
+          <span class="text-bold text-gray-dark">{{ user.followers }}</span>
+          Followers </a
         >.
         <a href="#" class="followers">
-          <span class="text-bold text-gray-dark">34</span> Following </a
+          <span class="text-bold text-gray-dark">{{ user.following }}</span>
+          Following </a
         >.
 
         <a href="#" class="followers">
           <i class="far fa-star"></i>
-          <span class="text-bold text-gray-dark">34</span>
+          <span class="text-bold text-gray-dark">{{ user.public_repos }}</span>
         </a>
       </div>
 
       <div class="social hide-mobile">
         <div>
           <i class="fas fa-warehouse"></i>
-          <span class="company">@codekago</span>
+          <span class="company">{{ user.company }}</span>
         </div>
         <div>
           <i class="fas fa-map-marker-alt"></i>
           <span class="location">uyo,nigeria</span>
         </div>
-        <div><i class="fab fa-twitter"></i> @westernscript</div>
+        <div><i class="fab fa-twitter"></i> {{ user.twitter_username }}</div>
       </div>
 
       <hr class="hr" />
@@ -74,7 +77,21 @@
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  methods: {
+    async getUser() {
+      await this.$store.dispatch('getUserData')
+    },
+  },
+  async created() {
+    await this.getUser()
+    console.log(this.user)
+  },
+  computed: {
+    ...mapState(['user', 'loading']),
+  },
+}
 </script>
 
 <style scoped>

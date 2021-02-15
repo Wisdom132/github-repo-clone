@@ -47,6 +47,10 @@ export default {}
   text-decoration: none;
 }
 
+.dropdown button {
+  white-space: nowrap !important;
+}
+
 .dropdown > a:before,
 .dropdown > button:before {
   position: absolute;

@@ -15,32 +15,38 @@
       </div>
     </div>
 
-    <div class="repo" v-for="i in 10" :key="i">
+    <div class="repo" v-for="(item, i) in repos" :key="i">
       <div class="repo-main-data">
         <div class="repo-data">
-          <a href="#" class="repo-name">chaka</a>
+          <a href="#" class="repo-name"
+            >{{ item.name }}
+            <span v-if="item.private" class="private">Private</span>
+          </a>
           <p class="repo-description">
-            Simple application with electronjs and vuejs
+            {{ item.description }}
           </p>
         </div>
         <button class="star-button">
           <img src="icons/star.svg" alt="star icon" />
           <span>Star</span>
         </button>
-
-        <!-- <img src="icons/activity.svg" height="30" width="40" alt="" /> -->
       </div>
+      <img src="icons/activity.svg" alt="" />
+
       <div class="repo-meta">
         <div class="repo-language">
           <span style="background: red" class="repo-language-color"></span>
-          <span class="repo-language-text">Typescript</span>
+          <span class="repo-language-text">{{ item.language }}</span>
         </div>
         <div class="repo-stars">
           <img src="icons/star.svg" alt="star icon" />
-          <span>100</span>
+          <span>{{ item.stargazers_count }}</span>
         </div>
         <div class="updated">
-          <span>Updated on Jan 13</span>
+          <span
+            >Updated on
+            {{ $moment(item.updated_at, 'YYYYMMDD').fromNow() }}</span
+          >
         </div>
       </div>
     </div>
@@ -50,18 +56,53 @@
 <script>
 import Type from './dropdowns/type'
 import Language from './dropdowns/language'
+import { mapState } from 'vuex'
 
 export default {
   components: { Type, Language },
+  data() {
+    return {}
+  },
+  methods: {
+    async getRepos() {
+      await this.$store.dispatch('getUserRepos')
+    },
+    async getUser() {
+      await this.$store.dispatch('getUserData')
+    },
+  },
+  async created() {
+    await this.getRepos()
+    await this.getUser()
+    console.log(this.user)
+  },
+  computed: {
+    ...mapState(['repos', 'user', 'loading']),
+  },
 }
 </script>
 
 <style scoped>
+.private {
+  border: 1px solid var(--gh-light-gray);
+  margin-left: 8px;
+  padding: 3px 6px;
+  color: var(--gh-mid-gray);
+  border-radius: 2em;
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.repo-meta {
+  font-size: 12px;
+}
 .btn-wrapper {
   display: flex;
   margin-top: 2px;
 }
 .new-btn {
+  white-space: nowrap;
   margin-right: 14px;
   font-size: 14px;
   background-color: #2ea44f;
@@ -107,11 +148,11 @@ label {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .repo-data > :not(:last-child) {
   display: block;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .repo-name {
@@ -129,6 +170,7 @@ label {
 .repo-description {
   color: var(--gh-mid-gray);
   font-size: 15px;
+  margin-top: 10px;
 }
 
 .repo-meta {
