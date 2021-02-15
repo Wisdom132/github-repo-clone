@@ -71,6 +71,7 @@
   display: flex;
   margin-top: 4px;
 }
+
 .profile-nav-logo {
   background-size: cover;
 }

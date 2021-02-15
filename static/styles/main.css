@@ -8,6 +8,7 @@
   --gh-orange: #f9826c;
   --gh-green: #2ea44f;
   --gh-blue: #0366d6;
+
   --nav-spacing: 16px;
 }
 
@@ -36,6 +37,10 @@ body {
 
   .tabs-nav-wrapper {
     overflow-x: scroll;
+    margin-top:22px;
+  }
+  .main-tab-item {
+    font-size:14px !important
   }
 }
 
