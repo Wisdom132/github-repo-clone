@@ -27,12 +27,7 @@ body {
 
 }
 
-.container {
-  max-width: 1440px;
-  padding: 0 20px;
-  height: 100%;
-  margin: 0 auto;
-}
+
 
 @media screen and (max-width: 500px) {
   .hide-mobile {
@@ -83,8 +78,8 @@ body {
   }
 
   .profile-image-container {
-    width: 250px !important;
-    height: 250px !important;
+    width: 276px !important;
+    height: 276px !important;
   }
 }
 a:hover {
@@ -117,3 +112,9 @@ a:hover {
   box-shadow: var(--color-shadow-inset);
 }
 
+.container {
+  max-width: 1440px;
+  padding: 0 35px;
+  height: 100%;
+  margin: 0 auto;
+} 

@@ -49,7 +49,12 @@
             </button>
             <button class="hide-mobile">
               <div class="nav-user-logo-wrapper">
-                <img id="navAvatar" src="" alt="profile-logo" class="" />
+                <img
+                  id="navAvatar"
+                  src="https://avatars.githubusercontent.com/u/42722372?s=60&v=4"
+                  alt="profile-logo"
+                  class="profile-nav-logo"
+                />
               </div>
 
               <img src="icons/caret-down.svg" alt="dropdown icon" />
@@ -65,6 +70,9 @@
 .noti-wrapper {
   display: flex;
   margin-top: 4px;
+}
+.profile-nav-logo {
+  background-size: cover;
 }
 .dot {
   height: 10px;

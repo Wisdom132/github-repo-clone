@@ -15,6 +15,42 @@
         </div>
       </div>
       <p id="bio" class="bio">Stick with me and you'll be fat🤓</p>
+      <button class="edit-profile-btn">Edit profile</button>
+
+      <div class="user-stat">
+        <a href="#" class="followers">
+          <i class="fas fa-users"></i>
+          <span class="text-bold text-gray-dark">32</span> Followers </a
+        >.
+        <a href="#" class="followers">
+          <span class="text-bold text-gray-dark">34</span> Following </a
+        >.
+
+        <a href="#" class="followers">
+          <i class="far fa-star"></i>
+          <span class="text-bold text-gray-dark">34</span>
+        </a>
+      </div>
+
+      <div class="social hide-mobile">
+        <div>
+          <i class="fas fa-warehouse"></i>
+          <span class="company">@codekago</span>
+        </div>
+        <div>
+          <i class="fas fa-map-marker-alt"></i>
+          <span class="location">uyo,nigeria</span>
+        </div>
+        <div><i class="fab fa-twitter"></i> @westernscript</div>
+      </div>
+
+      <hr class="hr" />
+      <div class="highlight hide-mobile">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Arctic Code Vault Contributor</li>
+        </ul>
+      </div>
     </section>
     <div class="tabs-nav-wrapper hide-desktop">
       <nav class="tabs-nav">
@@ -42,8 +78,75 @@ export default {}
 </script>
 
 <style scoped>
+.hr {
+  opacity: 0.4;
+}
+.highlight {
+  margin: 8px 0;
+}
+.highlight h2 {
+  font-weight: 600;
+  font-size: 16px !important;
+  margin-bottom: 8px !important;
+}
+.highlight ul li {
+  font-size: 14px;
+}
+.location {
+  margin-left: 6px;
+}
+.company {
+  font-weight: 600;
+  color: black;
+}
+.social {
+  color: #586069 !important;
+  font-size: 14px;
+  margin-bottom: 19px;
+}
+
+.social div {
+  margin-bottom: 10px;
+}
+.social div i {
+  margin-right: 10px;
+}
+.user-stat {
+  margin-bottom: 19px;
+}
+.followers {
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  color: #586069 !important;
+  font-size: 14px;
+}
+
+.followers span {
+  font-weight: 600 !important;
+  color: black;
+}
+.edit-profile-btn {
+  padding: 7px 16px;
+  font-weight: 500 !important;
+  border: 1px solid;
+  border-radius: 6px;
+
+  margin: 16px 0 !important;
+  background-color: #fafbfc;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: var(--color-btn-text);
+  background-color: #fafbfc;
+  border-color: rgba(27, 31, 35, 0.15);
+  box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
+    inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+}
 #userAvatar {
   max-width: 100%;
+  height: auto;
 }
 .main-tabs {
   display: flex;
@@ -102,16 +205,21 @@ export default {}
   background: rebeccapurple;
   overflow: hidden;
   margin-top: 10px;
+  float: right;
 }
 .profile-name {
   font-weight: 600;
-  font-size: 1.7rem;
+  font-size: 26px;
+  line-height: 1.25;
   color: var(--gh-deep-gray);
   padding: 5px 20px;
 }
 .profile-username {
+  font-size: 20px;
+  font-style: normal;
   font-weight: 300;
-  font-size: 1.5rem;
+  line-height: 24px;
+
   color: var(--gh-mid-gray);
   padding: 5px 20px;
 }
