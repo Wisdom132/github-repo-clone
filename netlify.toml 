@@ -1,0 +1,9 @@
+[build]
+  NUXT_ENV_BASE_API = "/api"
+  NUXT_ENV_HOST_DOMAIN = "https://your-domain.gr"
+
+[context.branch-deploy]
+  environment = { NUXT_ENV_BASE_API = "/dev-api", NUXT_ENV_HOST_DOMAIN = "https://dev.your-domain.gr",GH_KEY="e37d71472986f19b6dd5007f2cb0037090c74524" }
+
+[context.production]
+  environment = { NUXT_ENV_BASE_API = "/api", NUXT_ENV_HOST_DOMAIN = "https://your-domain.gr",GH_KEY="e37d71472986f19b6dd5007f2cb0037090c74524" }
