@@ -9,17 +9,21 @@
             <span>Overview</span>
           </button>
           <button class="main-tab-item main-tab-item-active">
-            <img src="icons/repositories.svg" alt="repositories icon" /><span
-              >Repositories
+            <span>
+              <img
+                src="icons/activity.svg"
+                class="repo-svg"
+                alt="repositories_icon"
+              />
+              <b>Repositories</b>
               <span class="repos">{{
                 Number(this.user.owned_private_repos + this.user.public_repos)
-              }}</span></span
-            >
+              }}</span>
+            </span>
           </button>
           <button class="main-tab-item">
-            <img src="icons/projects.svg" alt="projects icon" /><span
-              >Projects</span
-            >
+            <img src="icons/projects.svg" alt="projects icon" />
+            <span>Projects</span>
           </button>
           <button class="main-tab-item">
             <img src="icons/packages.svg" alt="packages icon" />
@@ -49,6 +53,10 @@ export default {
 </script>
 
 <style  scoped>
+.repo-svg {
+  position: relative;
+  top: 5px;
+}
 .repos {
   background-color: var(--gh-light-gray);
   padding: 3px 6px;

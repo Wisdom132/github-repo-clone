@@ -18,7 +18,7 @@
     <div class="repo" v-for="(item, i) in repos" :key="i">
       <div class="repo-main-data">
         <div class="repo-data">
-          <a href="#" class="repo-name"
+          <a :href="item.html_url" target="_blank" class="repo-name"
             >{{ item.name }}
             <span v-if="item.private" class="private">Private</span>
           </a>
@@ -31,8 +31,6 @@
           <span>Star</span>
         </button>
       </div>
-      <img src="icons/activity.svg" alt="" />
-
       <div class="repo-meta">
         <div class="repo-language">
           <span style="background: red" class="repo-language-color"></span>
