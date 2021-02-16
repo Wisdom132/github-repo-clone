@@ -61,6 +61,9 @@ export default {
       lang: 'en'
     }
   },
+  env: {
+    GH_KEY: process.env.GH_KEY
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
