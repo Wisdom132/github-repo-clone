@@ -70,6 +70,7 @@ export default {
   },
   async created() {
     await this.getRepos()
+    console.log(process.env.GH_KEY)
   },
   computed: {
     ...mapState(['repos', 'loading']),
