@@ -92,6 +92,9 @@ export default {
   display: none;
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.175);
+  z-index: 99999;
+  width: 250px;
+  margin-top: 25px;
 }
 
 .dropdown input[type='checkbox']:checked + ul {
@@ -101,9 +104,10 @@ export default {
 .dropdown ul li {
   display: block;
   padding: 6px 20px;
-  background-color: #e5e5e5;
+  /* background-color: #e5e5e5; */
   white-space: nowrap;
   min-width: 100px;
+  text-transform: capitalize;
 }
 
 .dropdown ul li:hover {
@@ -119,7 +123,7 @@ export default {
 
 .dropdown .divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 2px 0;
   overflow: hidden;
   background-color: #e5e5e5;
   font-size: 1px;
