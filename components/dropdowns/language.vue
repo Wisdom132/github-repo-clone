@@ -4,32 +4,34 @@
     <label>
       <input type="checkbox" />
       <ul>
-        <li onclick="console.log(1)">Action</li>
-        <li>Another Action</li>
-        <li>Something else here</li>
-        <li class="divider"></li>
-        <li>Separated link</li>
+        <div v-for="(item, i) in languages" :key="i">
+          <li>{{ item }}</li>
+          <li class="divider"></li>
+        </div>
       </ul>
     </label>
   </span>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      languages: ['Vue', 'Typescript', 'SCSS', 'Javascript', 'Java', 'CSS'],
+    }
+  },
+}
 </script>
-
 <style scoped>
 .selected {
   padding: 0 5px;
 }
 .dropdown {
-  background-color: var(--gh-off-white) !important;
   margin-right: 14px;
   position: relative;
   display: inline-block;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
-  z-index: 22222;
 }
 .dropdown:hover {
   cursor: pointer;
@@ -45,10 +47,6 @@ export default {}
   display: inline-block;
   color: black;
   text-decoration: none;
-}
-
-.dropdown button {
-  white-space: nowrap !important;
 }
 
 .dropdown > a:before,
@@ -93,6 +91,9 @@ export default {}
   display: none;
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.175);
+  z-index: 99999;
+  width: 250px;
+  margin-top: 25px;
 }
 
 .dropdown input[type='checkbox']:checked + ul {
@@ -102,12 +103,14 @@ export default {}
 .dropdown ul li {
   display: block;
   padding: 6px 20px;
+  /* background-color: #e5e5e5; */
   white-space: nowrap;
   min-width: 100px;
+  text-transform: capitalize;
 }
 
 .dropdown ul li:hover {
-  background-color: #f5f5f5;
+  background-color: #edeff2;
   cursor: pointer;
 }
 
@@ -119,7 +122,7 @@ export default {}
 
 .dropdown .divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 2px 0;
   overflow: hidden;
   background-color: #e5e5e5;
   font-size: 1px;
