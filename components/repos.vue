@@ -3,6 +3,7 @@
     <div class="repo-search-container">
       <label
         ><input
+          v-model="search"
           class="repo-search-input"
           type="text"
           placeholder="Find a repository..."
@@ -15,7 +16,7 @@
       </div>
     </div>
 
-    <div class="repo" v-for="(item, i) in repos" :key="i">
+    <div class="repo" v-for="(item, i) in filteredItems" :key="i">
       <div class="repo-main-data">
         <div class="repo-data">
           <a :href="item.html_url" target="_blank" class="repo-name"
@@ -26,7 +27,7 @@
             {{ item.description }}
           </p>
         </div>
-        <button class="star-button">
+        <button class="star-button" @click="getdata(item)">
           <img src="icons/star.svg" alt="star icon" />
           <span>Star</span>
         </button>
@@ -59,11 +60,16 @@ import { mapState } from 'vuex'
 export default {
   components: { Type, Language },
   data() {
-    return {}
+    return {
+      search: '',
+    }
   },
   methods: {
     async getRepos() {
       await this.$store.dispatch('getUserRepos')
+    },
+    getdata(data) {
+      console.log(data)
     },
   },
   async created() {
@@ -72,6 +78,11 @@ export default {
   },
   computed: {
     ...mapState(['repos', 'loading']),
+    filteredItems() {
+      return this.repos.filter((item) => {
+        return item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      })
+    },
   },
 }
 </script>

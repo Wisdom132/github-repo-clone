@@ -4,18 +4,23 @@
     <label>
       <input type="checkbox" />
       <ul>
-        <li onclick="console.log(1)">Action</li>
-        <li>Another Action</li>
-        <li>Something else here</li>
-        <li class="divider"></li>
-        <li>Separated link</li>
+        <div v-for="(item, i) in types" :key="i">
+          <li>{{ item }}</li>
+          <li class="divider"></li>
+        </div>
       </ul>
     </label>
   </span>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      types: ['public', 'private', 'sources', 'forks', 'archieved', 'mirror'],
+    }
+  },
+}
 </script>
 
 <style scoped>
@@ -96,6 +101,7 @@ export default {}
 .dropdown ul li {
   display: block;
   padding: 6px 20px;
+  background-color: #e5e5e5;
   white-space: nowrap;
   min-width: 100px;
 }
